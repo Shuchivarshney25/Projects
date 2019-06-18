@@ -1,0 +1,11 @@
+template : "hello , %s!"
+defaultname : Unknown
+
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 5000
+  adminConnectors:
+    - type: http
+      port: 5001
