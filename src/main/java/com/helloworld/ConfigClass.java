@@ -2,7 +2,11 @@ package com.helloworld;
 
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.dropwizard.db.DataSourceFactory;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 
 public class HelloWorld extends Configuration {
@@ -31,4 +35,15 @@ public class HelloWorld extends Configuration {
         return this.defaultname = defaultname;
     }
 
+    //db-connectivity
+    @NotNull
+    @Valid
+    private DataSourceFactory dataSourceFactory = new DataSourceFactory();
+
+
+    @JsonProperty("mongodb")
+    public DataSourceFactory getDataSourceFactory() {
+        return dataSourceFactory;
+    }
 }
+
